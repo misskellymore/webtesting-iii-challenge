@@ -4,9 +4,11 @@ import React from 'react';
 import Display from './Display.js';
 
 import renderer from 'react-test-renderer';
-import {render, fireEvent} from 'react-testing-library';
+import {render} from '@testing-library/react';
 
 
+
+// Display snapshot
 describe('<Display />', () => {
     
     it('should match snapshot', () =>{
@@ -14,4 +16,13 @@ describe('<Display />', () => {
 
         expect(tree).toMatchSnapshot();
     });
+
+    // Testing by id
+
+    it('should diplay open or closed', () => {
+      const {getByTestId} = render(<Display />);
+      expect(getByTestId("locked")).toBeDefined()       
+
+      
+    })
 });

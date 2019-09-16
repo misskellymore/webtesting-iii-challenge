@@ -28,6 +28,13 @@ describe('<Dashboard />', () => {
         getByText(/unlocked/i) 
     })
 
+    it('should shoow controls and display', () => {
+        const {getByText} = render(<Dashboard />);
+        
+        getByText(/Lock Gate/i);
+        getByText(/Close Gate/i);
+    })
+
     // cannot be closed or opened if locked
     it('cannot be opened if locked', () => {
         const {getByText} = render(<Dashboard />)
@@ -39,6 +46,9 @@ describe('<Dashboard />', () => {
 
         expect(closedBtn.disabled).toBe(true);
     })
+
+    
+    
  
    
 })
